@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgtypiicajjt"]
-
-[ext_resource type="Script" path="res://menus/main_menu.gd" id="1_jsuir"]
+[gd_scene format=3 uid="uid://dgtypiicajjt"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -9,15 +7,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jsuir")
 
 [node name="quit1" type="Button" parent="."]
-layout_mode = 2
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 1888.0
-offset_bottom = 1048.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
-
-[connection signal="pressed" from="quit1" to="." method="_on_quit_pressed"]
