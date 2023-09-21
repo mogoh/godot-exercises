@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=3 uid="uid://qdebfd5vgnwh"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2tvcd"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2tvcd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 32
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.960784, 0.917647, 0.862745, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="console" type="RichTextLabel" parent="CanvasLayer/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="chat" type="TextEdit" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Say something ..."
+scroll_fit_content_height = true
+
+[node name="send" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Send"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="host" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Host"
+
+[node name="terminate_server" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Terminate Server"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="join" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join"
+
+[node name="disconnect_client" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Disconnect Client
+"
+
+[node name="quit" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer2/send" to="." method="_on_send_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/terminate_server" to="." method="_on_terminate_server_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/disconnect_client" to="." method="_on_disconnect_client_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
