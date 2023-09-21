@@ -1,5 +1,5 @@
 This is a simple Godot project to demonstrate server-client connection on high-level API with UDP based ENet library.
-It contains a basic chat functionallity and displays connection changes.
+It contains a basic chat functionality and displays connection changes.
 
 ![](docs/screenshot.png)
 
